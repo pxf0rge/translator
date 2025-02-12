@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 abstract final class AppColors {
-  static const Color black = Color(0xFF1A1A1A); // Background
-  static const Color darkPurple = Color(0xFF281B45); // UI Elements
-  static const Color purple = Color(0xFF362763); // Texts
-  static const Color lightPurple = Color(0xFF443381); // Important ELements
-  static const Color lightestPurple = Color(0xFF523F9F); // Bold Elements
+  static const Color background = Color(0xFF124292E); // Background
+  static const Color elements = Color(0xFF373F45); // UI Elements
+  static const Color texts = Color(0xFFF0F6FC); // Texts
+  static const Color secondTexts = Color(0xFF586069); // Important ELements
+  static const Color others = Color(0xFF2188FF); // Bold Elements
 }

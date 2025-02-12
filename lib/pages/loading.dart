@@ -46,7 +46,7 @@ class _LoadingPageState extends State<LoadingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.black,
+      backgroundColor: AppColors.background,
       body: SafeArea(
         child: _getLoadingBody(),
       ),
@@ -60,7 +60,7 @@ class _LoadingPageState extends State<LoadingPage> {
       mainAxisSize: MainAxisSize.max,
       children: [
         SpinKitDoubleBounce(
-          color: AppColors.lightestPurple,
+          color: AppColors.others,
           size: 100,
         ),
         SizedBox(height: 20, width: double.infinity),
