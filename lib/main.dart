@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:translator/pages/home.dart';
+import 'package:translator/pages/loading.dart';
 
 void main(List<String> args) {}
 
@@ -12,5 +14,5 @@ class Main extends StatelessWidget {
     );
   }
 
-  Widget _getMainPage() => Container();
+  Widget _getMainPage() => LoadingPage();
 }
