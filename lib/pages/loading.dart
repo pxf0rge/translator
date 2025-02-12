@@ -2,7 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:translator/constants/AppColors.dart';
+import 'package:translator/data/Nav.dart';
 import 'package:translator/data/Requests.dart';
+import 'package:translator/pages/home.dart';
 
 class LoadingPage extends StatefulWidget {
   LoadingPage({super.key});
@@ -14,6 +16,7 @@ class LoadingPage extends StatefulWidget {
 class _LoadingPageState extends State<LoadingPage> {
   String loadingText = "Translator is connecting...";
   Requests requests = Requests();
+  Nav nav = Nav();
   bool isConnected = false;
 
   @override
@@ -23,11 +26,20 @@ class _LoadingPageState extends State<LoadingPage> {
   }
 
   void checkConnection() async {
-    Response response = await requests.get(url: 'https://api.ipify.org');
-    if (response.statusCode == 200) {
-      print(response.data);
-    } else {
-      print(response.data);
+    try {
+      Response response = await requests.get(url: 'https://api.ipify.org');
+      if (response.statusCode == 200) {
+        nav.push(HomePage(), context);
+      } else {
+        setState(() {
+          loadingText =
+              "Failed to connect. Please check your network connection";
+        });
+      }
+    } catch (e) {
+      setState(() {
+        loadingText = "Failed to connect. Please check your network connection";
+      });
     }
   }
 
@@ -54,6 +66,8 @@ class _LoadingPageState extends State<LoadingPage> {
         SizedBox(height: 20, width: double.infinity),
         Text(
           loadingText,
+          textDirection: TextDirection.ltr,
+          textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 18,
             color: Colors.grey[300],
