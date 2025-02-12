@@ -2,10 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:translator/constants/AppColors.dart';
 
-class LoadingPage extends StatelessWidget {
+class LoadingPage extends StatefulWidget {
   LoadingPage({super.key});
 
+  @override
+  State<LoadingPage> createState() => _LoadingPageState();
+}
+
+class _LoadingPageState extends State<LoadingPage> {
   String loadingText = "Translator is connecting...";
+
+  bool isConnected = false;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
