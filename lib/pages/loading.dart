@@ -17,12 +17,18 @@ class _LoadingPageState extends State<LoadingPage> {
   bool isConnected = false;
 
   @override
-  void initState() async {
+  void initState() {
+    checkConnection();
+    super.initState();
+  }
+
+  void checkConnection() async {
     Response response = await requests.get(url: 'https://api.ipify.org');
     if (response.statusCode == 200) {
       print(response.data);
+    } else {
+      print(response.data);
     }
-    super.initState();
   }
 
   @override
