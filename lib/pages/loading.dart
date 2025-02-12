@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:translator/constants/AppColors.dart';
+import 'package:translator/data/Requests.dart';
 
 class LoadingPage extends StatefulWidget {
   LoadingPage({super.key});
@@ -11,11 +13,15 @@ class LoadingPage extends StatefulWidget {
 
 class _LoadingPageState extends State<LoadingPage> {
   String loadingText = "Translator is connecting...";
-
+  Requests requests = Requests();
   bool isConnected = false;
 
   @override
-  void initState() {
+  void initState() async {
+    Response response = await requests.get(url: 'https://api.ipify.org');
+    if (response.statusCode == 200) {
+      print(response.data);
+    }
     super.initState();
   }
 
