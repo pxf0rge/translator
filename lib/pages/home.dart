@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
           color: Colors.white,
         ),
       ),
-      backgroundColor: AppColors.texts,
+      backgroundColor: AppColors.elements,
     );
   }
 }
