@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:translator/constants/AppColors.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,6 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  TextEditingController _controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,6 +57,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Expanded(
                       child: TextField(
+                        controller: _controller,
                         decoration: InputDecoration(
                           hintText: "Write text to translate.",
                           hintStyle: TextStyle(color: AppColors.secondTexts),
@@ -66,7 +70,11 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        setState(() {
+                          _controller.text = "";
+                        });
+                      },
                       child: Icon(Icons.close_rounded, color: AppColors.others),
                     )
                   ],
