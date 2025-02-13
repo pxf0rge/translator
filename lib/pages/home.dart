@@ -37,7 +37,59 @@ class _HomePageState extends State<HomePage> {
               ),
               _langBtn("Second Lang", false),
             ],
-          )
+          ),
+          SizedBox(height: 10),
+          Container(
+            width: double.maxFinite,
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.grey, width: 0.5),
+            ),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: "Write text to translate.",
+                          hintStyle: TextStyle(color: AppColors.secondTexts),
+                          border: InputBorder.none,
+                        ),
+                        style: TextStyle(color: AppColors.texts),
+                        cursorColor: AppColors.others,
+                        minLines: 5,
+                        maxLines: double.maxFinite.toInt(),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Icon(Icons.close_rounded, color: AppColors.others),
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.others,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        foregroundColor: AppColors.texts,
+                      ),
+                      child: Text("Translate"),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
