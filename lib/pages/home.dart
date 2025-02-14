@@ -28,78 +28,107 @@ class _HomePageState extends State<HomePage> {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Column(
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _langBtn("First Lang", true),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.compare_arrows_rounded),
-                color: AppColors.others,
-              ),
-              _langBtn("Second Lang", false),
-            ],
-          ),
-          SizedBox(height: 10),
+          _languagesRow(),
+          SizedBox(height: 20),
+          _textTranslate(),
+          SizedBox(height: 20),
           Container(
             width: double.maxFinite,
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Colors.grey, width: 0.5),
+            height: 200,
+            child: Text(
+              "سلام",
+              style: TextStyle(
+                fontSize: 17,
+                color: AppColors.texts,
+              ),
             ),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: TextField(
-                        controller: _controller,
-                        decoration: InputDecoration(
-                          hintText: "Write text to translate.",
-                          hintStyle: TextStyle(color: AppColors.secondTexts),
-                          border: InputBorder.none,
-                        ),
-                        style: TextStyle(color: AppColors.texts),
-                        cursorColor: AppColors.others,
-                        minLines: 5,
-                        maxLines: double.maxFinite.toInt(),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _controller.text = "";
-                        });
-                      },
-                      child: Icon(Icons.close_rounded, color: AppColors.texts),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.others,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        foregroundColor: AppColors.texts,
-                      ),
-                      child: Text("Translate"),
-                    ),
-                  ],
-                ),
-              ],
+            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            decoration: BoxDecoration(
+              color: AppColors.elements,
+              borderRadius: BorderRadius.circular(12),
             ),
           ),
         ],
       ),
+    );
+  }
+
+  Container _textTranslate() {
+    return Container(
+      width: double.maxFinite,
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.grey, width: 0.5),
+      ),
+      child: Column(
+        children: [
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: TextField(
+                  controller: _controller,
+                  decoration: InputDecoration(
+                    hintText: "Write text to translate.",
+                    hintStyle: TextStyle(color: AppColors.secondTexts),
+                    border: InputBorder.none,
+                  ),
+                  style: TextStyle(color: AppColors.texts),
+                  cursorColor: AppColors.others,
+                  minLines: 5,
+                  maxLines: double.maxFinite.toInt(),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _controller.text = "";
+                  });
+                },
+                child: Icon(Icons.close_rounded, color: AppColors.texts),
+              )
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              _translateBtn(),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  ElevatedButton _translateBtn() {
+    return ElevatedButton(
+      onPressed: () {},
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.others,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5),
+        ),
+        foregroundColor: AppColors.texts,
+      ),
+      child: Text("Translate"),
+    );
+  }
+
+  Row _languagesRow() {
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        _langBtn("First Lang", true),
+        IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.compare_arrows_rounded),
+          color: AppColors.others,
+        ),
+        _langBtn("Second Lang", false),
+      ],
     );
   }
 
