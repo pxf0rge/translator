@@ -11,6 +11,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   TextEditingController _controller = TextEditingController();
+  String translatedText = "";
 
   @override
   Widget build(BuildContext context) {
@@ -28,27 +29,45 @@ class _HomePageState extends State<HomePage> {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Column(
         children: [
+          // Top box for changing languages
           _languagesRow(),
           SizedBox(height: 20),
+
+          // Input box for original text
           _textTranslate(),
           SizedBox(height: 20),
-          Container(
-            width: double.maxFinite,
-            height: 200,
-            child: Text(
-              "سلام",
-              style: TextStyle(
-                fontSize: 17,
-                color: AppColors.texts,
-              ),
-            ),
-            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-            decoration: BoxDecoration(
-              color: AppColors.elements,
-              borderRadius: BorderRadius.circular(12),
-            ),
+
+          // Result box for translated text
+          Visibility(
+            visible: translatedText != "",
+            child: _resultBox(),
           ),
         ],
+      ),
+    );
+  }
+
+  ConstrainedBox _resultBox() {
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        minHeight: 200,
+        maxHeight: double.infinity,
+      ),
+      child: Container(
+        width: double.maxFinite,
+        // height: 200,
+        child: Text(
+          "$translatedText",
+          style: TextStyle(
+            fontSize: 17,
+            color: AppColors.texts,
+          ),
+        ),
+        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+        decoration: BoxDecoration(
+          color: AppColors.elements,
+          borderRadius: BorderRadius.circular(12),
+        ),
       ),
     );
   }
