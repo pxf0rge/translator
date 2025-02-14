@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:translator/constants/AppColors.dart';
+import 'package:translator/data/TranslationAPI.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,7 +11,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
+  final TranslationAPI translator = TranslationAPI(
+    apiToken: '422632:67af062a13a53',
+  );
   String translatedText = "";
 
   @override
