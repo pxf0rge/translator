@@ -127,9 +127,9 @@ class _HomePageState extends State<HomePage> {
 
   ElevatedButton _translateBtn() {
     return ElevatedButton(
-      onPressed: () {
+      onPressed: () async {
         if (_controller.text != "") {
-          translatedText = translator.trasnlate(
+          translatedText = await translator.trasnlate(
             source: 'fa',
             target: 'en',
             text: _controller.text,
