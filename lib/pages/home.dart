@@ -127,7 +127,12 @@ class _HomePageState extends State<HomePage> {
 
   ElevatedButton _translateBtn() {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        if (_controller.text != "") {
+          translatedText = translator.trasnlate(
+              source: 'fa', target: 'en', text: _controller.text);
+        }
+      },
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.others,
         shape: RoundedRectangleBorder(
