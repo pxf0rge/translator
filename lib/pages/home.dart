@@ -130,7 +130,10 @@ class _HomePageState extends State<HomePage> {
       onPressed: () {
         if (_controller.text != "") {
           translatedText = translator.trasnlate(
-              source: 'fa', target: 'en', text: _controller.text);
+            source: 'fa',
+            target: 'en',
+            text: _controller.text,
+          );
         }
       },
       style: ElevatedButton.styleFrom(
