@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 import 'package:translator/constants/AppColors.dart';
 
 class HomePage extends StatefulWidget {
@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                           _controller.text = "";
                         });
                       },
-                      child: Icon(Icons.close_rounded, color: AppColors.others),
+                      child: Icon(Icons.close_rounded, color: AppColors.texts),
                     )
                   ],
                 ),
