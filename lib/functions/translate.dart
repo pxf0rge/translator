@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:translator/data/Requests.dart';
 
@@ -9,11 +11,14 @@ Future<String> tr({
   required String text,
   required String apiToken,
 }) async {
+  String json =
+      '{"source":"$sourceLang","target":"$targetLang","text":"$text"}';
+  print(json);
   Response response = await requests.post(
     url: 'https://api.one-api.ir/translate/v1/microsoft',
     headers: {'one-api-token': apiToken},
-    data:
-        '{"source": "$sourceLang" , "target": "$targetLang" , "text": "$text"}',
+    data: jsonDecode(json),
   );
-  return response.data;
+
+  return response.data["result"];
 }

@@ -62,6 +62,7 @@ class _HomePageState extends State<HomePage> {
         // height: 200,
         child: Text(
           "$translatedText",
+          textDirection: TextDirection.rtl,
           style: TextStyle(
             fontSize: 17,
             color: AppColors.texts,
@@ -108,6 +109,7 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   setState(() {
                     _controller.text = "";
+                    translatedText = "";
                   });
                 },
                 child: Icon(Icons.close_rounded, color: AppColors.texts),
@@ -135,6 +137,9 @@ class _HomePageState extends State<HomePage> {
             text: _controller.text,
           );
         }
+        setState(() {
+          translatedText = translatedText;
+        });
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.others,
