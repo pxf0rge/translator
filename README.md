@@ -1,25 +1,25 @@
 # 📱 Translator
 
-یک اپلیکیشن مترجم چندسکویی نوشته‌شده با Flutter.
+A cross-platform translation app built with Flutter.
 
-> ⚠️ این پروژه هنوز در حال توسعه است و کامل نشده است.
-
----
-
-## ✨ ویژگی‌ها (در حال برنامه‌ریزی)
-
-- پشتیبانی از ترجمه متن بین زبان‌های مختلف  
-- رابط کاربری ساده و کاربرپسند  
-- سازگاری با پلتفرم‌های Android، iOS، Web، macOS، Linux و Windows  
-- استفاده از APIهای ترجمه مانند Google Translate یا DeepL (در آینده)
+> ⚠️ This project is still under development and not yet complete.
 
 ---
 
-## 🚀 شروع به کار
+## ✨ Features (Planned)
 
-برای اجرای پروژه به Flutter SDK نیاز دارید. برای نصب Flutter و راه‌اندازی محیط توسعه، به [مستندات رسمی Flutter](https://flutter.dev/docs/get-started/install) مراجعه کنید.
+- Support for text translation between multiple languages  
+- Simple and user-friendly interface  
+- Compatible with Android, iOS, Web, macOS, Linux, and Windows  
+- Integration with translation APIs like Google Translate or DeepL (coming soon)
 
-### مراحل اجرا:
+---
+
+## 🚀 Getting Started
+
+To run this project, you need to have Flutter SDK installed. For installation instructions, visit the [official Flutter documentation](https://flutter.dev/docs/get-started/install).
+
+### Run the app:
 
 ```bash
 git clone https://github.com/pxf0rge/translator.git
